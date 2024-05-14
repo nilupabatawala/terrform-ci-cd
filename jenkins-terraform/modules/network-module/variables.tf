@@ -4,15 +4,15 @@ variable "cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "vpc_id" {
-  description = "The vpc id"
-  type        = string
-  default     = ""
-}
-
 variable "public_subnet_cidrs" {
   type        = list(string)
   description = "Public Subnet CIDR values"
+  default     = []
+}
+
+variable "private_subnet_cidrs" {
+  type        = list(string)
+  description = "Private Subnet CIDR values"
   default     = []
 }
 
@@ -23,16 +23,8 @@ variable "azs" {
   default     = []
 }
 
-variable "ami" {
-  description = "EC2 ami"
-  type        = string
-  default     = ""
+variable "azs_private" {
+  type        = list(string)
+  description = "Availability Zones"
+  default     = []
 }
-
-
-variable "instance_type" {
-  description = "EC2 instance type"
-  type        = string
-  default     = ""
-}
-

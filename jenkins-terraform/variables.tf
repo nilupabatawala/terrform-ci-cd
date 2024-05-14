@@ -7,15 +7,28 @@ variable "cidr" {
 variable "public_subnet_cidrs" {
   type        = list(string)
   description = "Public Subnet CIDR values"
-   default     = ["192.168.0.0/24"]
+   default     = []
+}
+
+variable "private_subnet_cidrs" {
+  type        = list(string)
+  description = "Private Subnet CIDR values"
+   default     = []
 }
 
 
 variable "azs" {
   type        = list(string)
   description = "Availability Zones"
-    default     = ["us-east-1a"]
+    default     = []
 }
+
+variable "azs_private" {
+  type        = list(string)
+  description = "Availability Zones"
+    default     = []
+}
+
 
 variable "ami" {
   description = "EC2 ami"
@@ -30,25 +43,6 @@ variable "instance_type" {
   default     = ""
 }
 
-
-variable "bucket" {
-  description = "Remote backend S3 bucket"
-  type        = string
-  default     = "jenkins-terraform-tf-state"
-}
-
-variable "key" {
-  description = "key"
-  type        = string
-  default     = "tf-infra/terraform.tfstate"
-}
-
-
-variable "dynamodb_table" {
-  description = "dynamodb table"
-  type        = string
-  default     = "terraform-state-locking"
-}
 
 variable "region" {
   description = "region"
