@@ -12,14 +12,7 @@ pipeline {
             steps {
                 withAWS(credentials:'AWSCredentials') {
 
-                    output = sh ( script: 'aws s3 ls' )
-
-                    if ( output >=0 ) {
-                        echo "AWS COnnection Sucessfull"
-
-                    }  else {
-                        echo "AWS connection failed"
-                    }   
+                    sh 'aws s3 ls'
                 }
             }
         }
