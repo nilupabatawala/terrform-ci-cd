@@ -76,7 +76,7 @@ resource "aws_instance" "instance1" {
 
   user_data = templatefile("${path.module}/jenkins.sh", {})
 
- tags = {
+  tags = {
     Name = "Jenkins instance"
   }
 

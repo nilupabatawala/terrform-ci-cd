@@ -7,26 +7,26 @@ variable "cidr" {
 variable "public_subnet_cidrs" {
   type        = list(string)
   description = "Public Subnet CIDR values"
-   default     = []
+  default     = []
 }
 
 variable "private_subnet_cidrs" {
   type        = list(string)
   description = "Private Subnet CIDR values"
-   default     = []
+  default     = []
 }
 
 
 variable "azs" {
   type        = list(string)
   description = "Availability Zones"
-    default     = []
+  default     = []
 }
 
 variable "azs_private" {
   type        = list(string)
   description = "Availability Zones"
-    default     = []
+  default     = []
 }
 
 

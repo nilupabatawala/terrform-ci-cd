@@ -1,5 +1,5 @@
 output "jenkins" {
-    value = "${module.ec2.jenkins_instance_public_ip}"
+  value = module.ec2.jenkins_instance_public_ip
 }
 
 # output "ansible" {

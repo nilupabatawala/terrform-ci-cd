@@ -31,7 +31,7 @@ resource "aws_eks_cluster" "testcluster" {
     subnet_ids = [
       element(var.private_subnet_cidrs, 0),
       element(var.private_subnet_cidrs, 1)
-     
+
     ]
   }
 
