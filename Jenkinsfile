@@ -21,9 +21,8 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 withCredentials([aws(credentialsId: 'AWSCredentials')]) {
-                sh 'cd jenkins-terraform'
                 sh 'ls -l'
-                sh 'terraform init -no-color'
+                sh 'cd jenkins-terraform; terraform init -no-color'
                 }
             }
         }
@@ -31,9 +30,8 @@ pipeline {
         stage('Terraform Format') {
             steps {
                 withCredentials([aws(credentialsId: 'AWSCredentials')]) {
-                sh 'cd jenkins-terraform'
                 sh 'ls -l'
-                sh 'terraform fmt --recursive -no-color'
+                sh 'cd jenkins-terraform; terraform fmt --recursive -no-color'
                 }
             }
         }
@@ -41,9 +39,8 @@ pipeline {
         stage('Terraform plan') {
             steps {
                 withCredentials([aws(credentialsId: 'AWSCredentials')]) {
-                sh 'cd jenkins-terraform'
                 sh 'ls -l'
-                sh 'terraform plan -no-color'
+                sh 'cd jenkins-terraform;terraform plan -no-color'
                 }
             }
         }
