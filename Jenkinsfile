@@ -10,10 +10,11 @@ pipeline {
 
         stage('Check AWS COnnectivity') {
             steps {
-                withAWS(credentials:'AWSCredentials') {
 
+                withCredentials([aws(credentialsId: 'AWSCredentials')]) {
                     sh 'aws s3 ls'
                 }
+                   
             }
         }
 
