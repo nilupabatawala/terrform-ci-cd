@@ -16,6 +16,10 @@ terraform {
 
 }
 
+provider "aws" {
+  region = "eu-north-1"  # Replace with your desired region
+}
+
 module "network" {
   source               = "./modules/network-module"
   cidr                 = var.cidr
