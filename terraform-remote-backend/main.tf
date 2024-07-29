@@ -1,13 +1,13 @@
 terraform {
   backend "s3" {
-    bucket = "jenkins-terraform-tf-state"
-    key = "tf-infra/terraform.tfstate"
-    region = "eu-north-1"
+    bucket         = "jenkins-terraform-tf-state"
+    key            = "tf-infra/terraform.tfstate"
+    region         = "eu-north-1"
     dynamodb_table = "terraform-state-locking"
-    encrypt = true
+    encrypt        = true
     lock_timeout   = "5m"
   }
-  
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"

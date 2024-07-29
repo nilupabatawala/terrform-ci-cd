@@ -21,21 +21,21 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 sh 'cd jenkins-terraform'
-                sh 'terraform init'
+                sh 'terraform init -no-color'
             }
         }
 
         stage('Terraform Format') {
             steps {
                 sh 'cd jenkins-terraform'
-                sh 'terraform fmt --recursive'
+                sh 'terraform fmt --recursive -no-color'
             }
         }
 
         stage('Terraform plan') {
             steps {
                 sh 'cd jenkins-terraform'
-                sh 'terraform plan'
+                sh 'terraform plan -no-color'
             }
         }
 
