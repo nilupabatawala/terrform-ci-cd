@@ -20,8 +20,10 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
+                withCredentials([aws(credentialsId: 'AWSCredentials')]) {
                 sh 'cd jenkins-terraform'
                 sh 'terraform init -no-color'
+                }
             }
         }
 
