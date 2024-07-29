@@ -36,7 +36,7 @@ module "ec2" {
   
 }
 
-# module "eks" {
-#   source = "./modules/eks-module"
-#   private_subnet_cidrs = module.network.private_subnet_ids
-# }
+ module "eks" {
+   source = "./modules/eks-module"
+   private_subnet_cidrs = module.network.private_subnet_ids
+ }

@@ -5,6 +5,7 @@ terraform {
     region = "eu-north-1"
     dynamodb_table = "terraform-state-locking"
     encrypt = true
+    lock_timeout   = "5m"
   }
   
   required_providers {

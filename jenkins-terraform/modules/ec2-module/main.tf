@@ -62,8 +62,8 @@ resource "aws_security_group" "allow_ssh" {
 
 }
 
-#configure aws instance
-resource "aws_instance" "instance" {
+#configure jekins instance
+resource "aws_instance" "instance1" {
   ami                         = var.ami
   instance_type               = var.instance_type
   subnet_id                   = element(var.public_subnet_cidrs, 0)
@@ -76,6 +76,32 @@ resource "aws_instance" "instance" {
 
   user_data = templatefile("${path.module}/jenkins.sh", {})
 
+ tags = {
+    Name = "Jenkins instance"
+  }
 
 }
+
+
+
+#configure jekins instance
+# resource "aws_instance" "instance2" {
+#   ami                         = var.ami
+#   instance_type               = var.instance_type
+#   subnet_id                   = element(var.public_subnet_cidrs, 0)
+#   key_name                    = aws_key_pair.tf-key.key_name
+#   associate_public_ip_address = true
+#   security_groups             = [aws_security_group.allow_ssh.id]
+#   lifecycle {
+#     ignore_changes = [security_groups]
+#   }
+
+#   tags = {
+#     Name = "Ansible instance"
+#   }
+
+#   user_data = templatefile("${path.module}/ansible.sh", {})
+
+
+# }
 
