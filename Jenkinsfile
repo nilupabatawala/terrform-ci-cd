@@ -29,15 +29,19 @@ pipeline {
 
         stage('Terraform Format') {
             steps {
+                withCredentials([aws(credentialsId: 'AWSCredentials')]) {
                 sh 'cd jenkins-terraform'
                 sh 'terraform fmt --recursive -no-color'
+                }
             }
         }
 
         stage('Terraform plan') {
             steps {
+                withCredentials([aws(credentialsId: 'AWSCredentials')]) {
                 sh 'cd jenkins-terraform'
                 sh 'terraform plan -no-color'
+                }
             }
         }
 
