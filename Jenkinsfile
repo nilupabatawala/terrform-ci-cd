@@ -68,7 +68,7 @@ pipeline {
         stage('Terraform plan') {
             steps {
                 withCredentials([aws(credentialsId: 'AWSCredentials')]) {
-                sh 'cd jenkins-terraform;terraform plan -no-color'
+                sh 'cd jenkins-terraform;terraform plan -out=tfplan.out -no-color'
                 }
             }
         }
