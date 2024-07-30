@@ -52,7 +52,6 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 withCredentials([aws(credentialsId: 'AWSCredentials')]) {
-                sh 'ls -l'
                 sh 'cd jenkins-terraform; terraform init -no-color'
                 }
             }
@@ -61,7 +60,6 @@ pipeline {
         stage('Terraform Format') {
             steps {
                 withCredentials([aws(credentialsId: 'AWSCredentials')]) {
-                sh 'ls -l'
                 sh 'cd jenkins-terraform; terraform fmt --recursive -no-color'
                 }
             }
@@ -70,7 +68,6 @@ pipeline {
         stage('Terraform plan') {
             steps {
                 withCredentials([aws(credentialsId: 'AWSCredentials')]) {
-                sh 'ls -l'
                 sh 'cd jenkins-terraform;terraform plan -no-color'
                 }
             }
