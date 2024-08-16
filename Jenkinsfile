@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/nilupabatawala/terrform-ci-cd.git'
+                git branch: 'main', url: 'https://github.com/nilupabatawala/fastapi-rabbitmq-app.git'
             }
         }
         
